@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 // http://1bestcsharp.blogspot.co.uk/2016/01/java-images-navigation-from-folder.html
 // https://docs.oracle.com/javase/tutorial/uiswing/events/keylistener.html
 
-public class HUD_GUI extends JFrame implements KeyListener {
+public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 
 	// GUI components
 	private JPanel panel1, panel2, panel3, panel4, p11, p12, p13, p21, p22, p23, p31, p32, p41, p42;
@@ -32,8 +32,9 @@ public class HUD_GUI extends JFrame implements KeyListener {
 	
 
 	// constructor
-	public HUD_GUI() {
+	public HUD_GUI_Nightview() {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setTitle("Head up Display");
 		setSize(1000, 250);
 		setLocationRelativeTo(null);
 		setFocusable(true);
@@ -42,9 +43,7 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		setUndecorated(true);
 		getContentPane().setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
 		setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
-		
 		setUpMenu1();
-		
 		counter = 20;
 	}
 	
@@ -53,15 +52,15 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		
 		this.menu1 = true;
 		
-		this.button1 = new ImageIcon("button1.png");
-		this.button2 = new ImageIcon("button2.png");
-        this.smartHome = new ImageIcon("smartHome.png");
-        this.music = new ImageIcon("music.png");
-        this.phone = new ImageIcon("phone.png");
+		this.button1 = new ImageIcon("button11.png");
+		this.button2 = new ImageIcon("button12.png");
+        this.smartHome = new ImageIcon("smartHome1.png");
+        this.music = new ImageIcon("music1.png");
+        this.phone = new ImageIcon("phone1.png");
         
 		this.image1 = new JLabel(smartHome);
 		this.image2 = new JLabel(music);
-		image2.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+		image2.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 		selectedIcon = "music";
 		this.image3 = new JLabel(phone);
 		this.buttonLeft = new JLabel(button1);
@@ -102,18 +101,18 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		
 		this.menu2 = true;
 		
-		this.button1 = new ImageIcon("button1.png");
-		this.button2 = new ImageIcon("button2.png");
-        this.door = new ImageIcon("door.png");
-        this.wifi = new ImageIcon("wifi.png");
-        this.thermometer = new ImageIcon("thermometer.png");
-        this.light = new ImageIcon("light.png");
-        this.power = new ImageIcon("power.png");
+		this.button1 = new ImageIcon("button11.png");
+		this.button2 = new ImageIcon("button12.png");
+        this.door = new ImageIcon("door1.png");
+        this.wifi = new ImageIcon("wifi1.png");
+        this.thermometer = new ImageIcon("thermometer1.png");
+        this.light = new ImageIcon("light1.png");
+        this.power = new ImageIcon("power1.png");
         
 		this.image4 = new JLabel(door);
 		this.image5 = new JLabel(wifi);
 		this.image6 = new JLabel(thermometer);
-		image6.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+		image6.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 		selectedIcon = "thermometer";
 		this.image7 = new JLabel(light);
 		this.image8 = new JLabel(power);
@@ -151,6 +150,7 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		panel2.add(p23, BorderLayout.EAST);
 
 		this.add(panel2);
+		
 	}
 	
 	//setup menu 3
@@ -159,21 +159,21 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		this.menu3 = true;
 		this.isLocked = false;
 		
-        this.sliderlock = new ImageIcon("sliderlock.png");
-        this.locked = new ImageIcon("locked.png"); //will be added after keyboard action
-        this.unlocked = new ImageIcon("unlock.png"); //will be added after keyboard action
+        this.sliderlock = new ImageIcon("sliderlock1.png");
+        this.locked = new ImageIcon("locked1.png"); //will be added after keyboard action
+        this.unlocked = new ImageIcon("unlock1.png"); //will be added after keyboard action
         
 		this.image9 = new JLabel(sliderlock);
 		this.image10 = new JLabel(locked);
 		this.image12 = new JLabel(unlocked);
 		this.menuDescription = new JLabel("Slide to lock");
-		menuDescription.setForeground(Color.WHITE);
+		menuDescription.setForeground(new Color(29, 224, 65));
 		menuDescription.setFont(new Font("Arial", Font.BOLD, 50));
 		this.actionSuccessA = new JLabel("Locked"); //will be added after keyboard action
-		actionSuccessA.setForeground(Color.WHITE);
+		actionSuccessA.setForeground(new Color(29, 224, 65));
 		actionSuccessA.setFont(new Font("Arial", Font.BOLD, 50));
 		this.actionSuccessB = new JLabel("Unlocked"); //will be added after keyboard action
-		actionSuccessB.setForeground(Color.WHITE);
+		actionSuccessB.setForeground(new Color(29, 224, 65));
 		actionSuccessB.setFont(new Font("Arial", Font.BOLD, 50));
 		this.placeholder1 = new JLabel("				");
 		placeholder1.setSize(500, 500);
@@ -202,16 +202,16 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		
 		this.menu4 = true;
 		
-        this.heating = new ImageIcon("heating.png");
+        this.heating = new ImageIcon("heating1.png");
         
 		this.image11 = new JLabel(heating);
 		this.menuDescription1 = new JLabel("Slide to adjust heat");
 		menuDescription1.setVerticalAlignment(JLabel.CENTER);
 		menuDescription1.setHorizontalAlignment(JLabel.CENTER);
-		menuDescription1.setForeground(Color.WHITE);
+		menuDescription1.setForeground(new Color(29, 224, 65));
 		menuDescription1.setFont(new Font("Arial", Font.BOLD, 50));
 		this.actionSuccess1 = new JLabel(); //will be manipulated keyboard action
-		actionSuccess1.setForeground(Color.WHITE);
+		actionSuccess1.setForeground(new Color(29, 224, 65));
 		actionSuccess1.setFont(new Font("Arial", Font.BOLD, 50));
 		
 		this.panel4 = new JPanel();
@@ -249,13 +249,13 @@ public class HUD_GUI extends JFrame implements KeyListener {
 			
 			if (menu1 == true && selectedIcon == "music") {
 				image2.setBorder(BorderFactory.createEmptyBorder());
-				image3.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				image3.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 				selectedIcon = "phone";
 			}
 			
 			else if (menu1 == true && selectedIcon == "smartHome") {
 				image1.setBorder(BorderFactory.createEmptyBorder());
-				image2.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				image2.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 				selectedIcon = "music";
 			}
 			
@@ -263,25 +263,25 @@ public class HUD_GUI extends JFrame implements KeyListener {
 			
 			else if (menu2 == true && selectedIcon == "thermometer") {
 				image6.setBorder(BorderFactory.createEmptyBorder());
-				image7.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				image7.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 				selectedIcon = "light";
 			}
 			
 			else if (menu2 == true && selectedIcon == "light") {
 				image7.setBorder(BorderFactory.createEmptyBorder());
-				image8.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				image8.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 				selectedIcon = "power";
 			}
 			
 			else if (menu2 == true && selectedIcon == "door") {
 				image4.setBorder(BorderFactory.createEmptyBorder());
-				image5.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				image5.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 				selectedIcon = "wifi";
 			}
 			
 			else if (menu2 == true && selectedIcon == "wifi") {
 				image5.setBorder(BorderFactory.createEmptyBorder());
-				image6.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				image6.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 				selectedIcon = "thermometer";
 			}
 			
@@ -295,7 +295,7 @@ public class HUD_GUI extends JFrame implements KeyListener {
 				p32.remove(image12);
 				p32.add(image10);
 				isLocked = true;
-
+				this.setVisible(true);
 			}
 			
 			
@@ -308,13 +308,13 @@ public class HUD_GUI extends JFrame implements KeyListener {
 			
 			if (menu1 == true && selectedIcon == "music") {
 				image2.setBorder(BorderFactory.createEmptyBorder());
-				image1.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				image1.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 				selectedIcon = "smartHome";
 			}
 			
 			else if (menu1 == true && selectedIcon == "phone") {
 				image3.setBorder(BorderFactory.createEmptyBorder());
-				image2.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				image2.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 				selectedIcon = "music";
 			}
 			
@@ -322,25 +322,25 @@ public class HUD_GUI extends JFrame implements KeyListener {
 			
 			else if (menu2 == true && selectedIcon == "thermometer") {
 				image6.setBorder(BorderFactory.createEmptyBorder());
-				image5.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				image5.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 				selectedIcon = "wifi";
 			}
 			
 			else if (menu2 == true && selectedIcon == "wifi") {
 				image5.setBorder(BorderFactory.createEmptyBorder());
-				image4.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				image4.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 				selectedIcon = "door";
 			}
 			
 			else if (menu2 == true && selectedIcon == "power") {
 				image8.setBorder(BorderFactory.createEmptyBorder());
-				image7.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				image7.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 				selectedIcon = "light";
 			}
 			
 			else if (menu2 == true && selectedIcon == "light") {
 				image7.setBorder(BorderFactory.createEmptyBorder());
-				image6.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+				image6.setBorder(BorderFactory.createLineBorder(Color.white, 5));
 				selectedIcon = "thermometer";
 			}
 			
@@ -351,7 +351,7 @@ public class HUD_GUI extends JFrame implements KeyListener {
 				p32.remove(image10);
 				p32.add(image12);
 				isLocked = false;
-
+				this.setVisible(true);
 			}
 			
 			
@@ -366,7 +366,7 @@ public class HUD_GUI extends JFrame implements KeyListener {
 				String s = "Heat is: "+counter+"°C";
 				actionSuccess1.setText(s);
 				p41.add(actionSuccess1);
-
+				this.setVisible(true);
 			}
 			
 		}
@@ -380,12 +380,12 @@ public class HUD_GUI extends JFrame implements KeyListener {
 				String s = "Heat is: "+counter+"°C";
 				actionSuccess1.setText(s);
 				p41.add(actionSuccess1);
-
+				this.setVisible(true);
 			}
 		
 		}
 		
-		//Q key
+		//Q key = "Enter"
 		else if (e.getKeyCode()==KeyEvent.VK_Q) {
 			
 			// menu 1
@@ -410,7 +410,7 @@ public class HUD_GUI extends JFrame implements KeyListener {
 			
 		}
 		
-		//A key
+		//A key = "Back"
 		else if (e.getKeyCode()==KeyEvent.VK_A) {
 			if (menu2 == true) {
 				this.remove(panel2);
@@ -430,13 +430,13 @@ public class HUD_GUI extends JFrame implements KeyListener {
 			}	
 		}
 		
-		//Z key
+		//Z key for exit the program
 		else if (e.getKeyCode()==KeyEvent.VK_Z) {
 			System.exit(0);
 		}
 		
-		this.revalidate(); // do not remove
-		this.repaint(); // do not remove
+		repaint();
+		this.setVisible(true);
 		
 	}
 

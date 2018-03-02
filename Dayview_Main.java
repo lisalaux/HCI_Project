@@ -1,5 +1,5 @@
 
-public class HCI_Main {
+public class Dayview_Main {
 
 	public static void main(String[] args) {
 		HUD_GUI display = new HUD_GUI();
