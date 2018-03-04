@@ -1,4 +1,3 @@
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -28,8 +27,15 @@ public class HUD_GUI extends JFrame implements KeyListener {
 	private boolean menu1, menu2, menu3, menu4;
 	private String selectedIcon;
 	private boolean isLocked;
-	private int counter;
-	
+
+	// Counter for the heat adjustment
+	private int heatCounter;
+
+	// Counter for all mapped keys (except Z, because this terminates counting)
+	private int counterRightArrow, counterLeftArrow, counterUpArrow, counterDownArrow, counterQ, counterA;
+
+	// Logger object
+	HUD_Logger logger;
 
 	// constructor
 	public HUD_GUI() {
@@ -44,10 +50,27 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
 		
 		setUpMenu1();
-		
-		counter = 20;
+
+		// Set the heatCounter to a default value of 20
+		heatCounter = 20;
+
+		// Initialize all key press counters with the value 0
+		initializeKeyCounters();
+
+		// Instantiate the logger
+		logger = new HUD_Logger();
 	}
-	
+
+	// Helper method instantiating all key press counters
+	private void initializeKeyCounters() {
+		counterRightArrow = 0;
+		counterLeftArrow = 0;
+		counterUpArrow = 0;
+		counterDownArrow = 0;
+		counterQ = 0;
+		counterA = 0;
+	}
+
 	//setup menu 1
 	private void setUpMenu1() {
 		
@@ -244,6 +267,9 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		
 		//right arrow pressed
 		if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
+
+			//Increase the counter for the corresponding key
+			counterRightArrow++;
 			
 			// navigation menu 1
 			
@@ -303,7 +329,10 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		
 		//left arrow pressed
 		else if (e.getKeyCode()==KeyEvent.VK_LEFT) {
-			
+
+			//Increase the counter for the corresponding key
+			counterLeftArrow++;
+
 			//navigation menu 1
 			
 			if (menu1 == true && selectedIcon == "music") {
@@ -359,11 +388,14 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		
 		//up arrow; menu 4 only
 		else if (e.getKeyCode()==KeyEvent.VK_UP) {
+
+			//Increase the counter for the corresponding key
+			counterUpArrow++;
 			
 			if (menu4==true) {
 				p41.remove(menuDescription1);
-				counter ++;
-				String s = "Heat is: "+counter+"°C";
+				heatCounter ++;
+				String s = "Heat is: "+heatCounter+"°C";
 				actionSuccess1.setText(s);
 				p41.add(actionSuccess1);
 
@@ -373,11 +405,14 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		
 		//down arrow; menu 4 only
 		else if (e.getKeyCode()==KeyEvent.VK_DOWN) {
+
+			//Increase the counter for the corresponding key
+			counterDownArrow++;
 			
 			if (menu4==true) {
 				p41.remove(menuDescription1);
-				counter --;
-				String s = "Heat is: "+counter+"°C";
+				heatCounter --;
+				String s = "Heat is: "+heatCounter+"°C";
 				actionSuccess1.setText(s);
 				p41.add(actionSuccess1);
 
@@ -387,6 +422,9 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		
 		//Q key
 		else if (e.getKeyCode()==KeyEvent.VK_Q) {
+
+			//Increase the counter for the corresponding key
+			counterQ++;
 			
 			// menu 1
 			if (menu1 == true && selectedIcon == "smartHome") { //needs adjustment, only when icon is smartHome
@@ -412,6 +450,10 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		
 		//A key
 		else if (e.getKeyCode()==KeyEvent.VK_A) {
+
+			//Increase the counter for the corresponding key
+			counterA++;
+
 			if (menu2 == true) {
 				this.remove(panel2);
 				menu2 = false;
@@ -425,13 +467,15 @@ public class HUD_GUI extends JFrame implements KeyListener {
 			else if (menu4 == true) {
 				this.remove(panel4);
 				menu4 = false;
-				counter = 20;
+				heatCounter = 20;
 				setUpMenu2();
 			}	
 		}
 		
 		//Z key
 		else if (e.getKeyCode()==KeyEvent.VK_Z) {
+			logger.writeSummary(counterRightArrow,counterLeftArrow,counterUpArrow,counterDownArrow,counterQ,counterA);
+			logger.closeFileHandler();
 			System.exit(0);
 		}
 		
@@ -444,6 +488,4 @@ public class HUD_GUI extends JFrame implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// not used
 	}
-
-
 }
