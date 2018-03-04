@@ -43,7 +43,7 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 		setUndecorated(true);
 		getContentPane().setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
 		setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
-		setUpMenu1();
+		
 		counter = 20;
 	}
 	
@@ -430,8 +430,13 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 			}	
 		}
 		
-		//Z key for exit the program
-		else if (e.getKeyCode()==KeyEvent.VK_Z) {
+		//G key
+		else if (e.getKeyCode()==KeyEvent.VK_G) {
+			setUpMenu1();
+		}
+		
+		//H key for exit the program
+		else if (e.getKeyCode()==KeyEvent.VK_H) {
 			System.exit(0);
 		}
 		

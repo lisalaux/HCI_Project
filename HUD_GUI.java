@@ -48,8 +48,6 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		setUndecorated(true);
 		getContentPane().setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
 		setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
-		
-		setUpMenu1();
 
 		// Set the heatCounter to a default value of 20
 		heatCounter = 20;
@@ -472,8 +470,13 @@ public class HUD_GUI extends JFrame implements KeyListener {
 			}	
 		}
 		
-		//Z key
-		else if (e.getKeyCode()==KeyEvent.VK_Z) {
+		//G key
+		else if (e.getKeyCode()==KeyEvent.VK_G) {
+			setUpMenu1();
+		}
+		
+		//H key
+		else if (e.getKeyCode()==KeyEvent.VK_H) {
 			logger.writeSummary(counterRightArrow,counterLeftArrow,counterUpArrow,counterDownArrow,counterQ,counterA);
 			logger.closeFileHandler();
 			System.exit(0);
