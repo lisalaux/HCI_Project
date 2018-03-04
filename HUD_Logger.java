@@ -51,22 +51,33 @@ public class HUD_Logger {
         }
     }
 
-//    public void writeDeckInfo(Deck deck) {
-//
-//        //instantiate new StringBuilder
-//        String deckString = "\r\n\r\nThe current deck:\r\n";
-//        StringBuilder deckBuilder = new StringBuilder(deckString);
-//
-//        //append each card in the deck
-//        for (int i = 0; i < Deck.deckSize; i++) {
-//            deckBuilder.append(writeCard(deck, deck.deckArray[i]));
-//        }
-//
-//        //write them as an info message into the logfile
-//        topTrumpsLogger.info(deckBuilder.toString() + lineSeparator);
-//
-//    }
-//
+    /**
+     * Methods to log the individual key presses.
+     * The keys to enter and exit the system are omitted on purpose.
+     */
+    public void logRightArrow() {
+        hudLogger.info("\r\nThe user pressed key RIGHT\r\n");
+    }
+
+    public void logLeftArrow() {
+        hudLogger.info("\r\nThe user pressed key LEFT\r\n");
+    }
+
+    public void logUpArrow() {
+        hudLogger.info("\r\nThe user pressed key UP\r\n");
+    }
+
+    public void logDownArrow() {
+        hudLogger.info("\r\nThe user pressed key DOWN\r\n");
+    }
+
+    public void logQKey() {
+        hudLogger.info("\r\nThe user pressed key Q\r\n");
+    }
+
+    public void logAKey() {
+        hudLogger.info("\r\nThe user pressed key A\r\n");
+    }
 
     /**
      * Write a summary of all the direct user interactions that occurred in
@@ -74,13 +85,13 @@ public class HUD_Logger {
      */
     public void writeSummary(int counterRightArrow, int counterLeftArrow, int counterUpArrow, int counterDownArrow, int counterQ, int counterA) {
 
-        String summary = "\r\nSummary for the current session:";
+        String summary = "\r\n\r\nSummary for the current session:";
         StringBuilder summaryBuilder = new StringBuilder(summary);
 
-        summaryBuilder.append("\r\nRight arrow clicks: " + counterRightArrow);
-        summaryBuilder.append("\r\nLeft arrow clicks: " + counterLeftArrow);
-        summaryBuilder.append("\r\nUp arrow clicks: " + counterUpArrow);
-        summaryBuilder.append("\r\nDown arrow clicks: " + counterDownArrow);
+        summaryBuilder.append("\r\nRIGHT arrow clicks: " + counterRightArrow);
+        summaryBuilder.append("\r\nLEFT arrow clicks: " + counterLeftArrow);
+        summaryBuilder.append("\r\nUP arrow clicks: " + counterUpArrow);
+        summaryBuilder.append("\r\nDOWN arrow clicks: " + counterDownArrow);
         summaryBuilder.append("\r\nQ key clicks: " + counterQ);
         summaryBuilder.append("\r\nA key clicks: " + counterA);
 

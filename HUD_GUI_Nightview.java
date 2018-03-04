@@ -1,4 +1,3 @@
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -28,8 +27,15 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 	private boolean menu1, menu2, menu3, menu4;
 	private String selectedIcon;
 	private boolean isLocked;
-	private int counter;
-	
+
+	// Counter for the heat adjustment
+	private int heatCounter;
+
+	// Counter for all mapped keys (except G as this starts the system (once) and H because this terminates counting)
+	private int counterRightArrow, counterLeftArrow, counterUpArrow, counterDownArrow, counterQ, counterA;
+
+	// Logger object
+	HUD_Logger logger;
 
 	// constructor
 	public HUD_GUI_Nightview() {
@@ -43,10 +49,28 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 		setUndecorated(true);
 		getContentPane().setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
 		setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
-		
-		counter = 20;
+
+		// Set the heatCounter to a default value of 20
+		heatCounter = 20;
+
+		// Initialize all key press counters with the value 0
+		initializeKeyCounters();
+
+		// Instantiate the logger
+		logger = new HUD_Logger();
+
 	}
-	
+
+	// Helper method instantiating all key press counters
+	private void initializeKeyCounters() {
+		counterRightArrow = 0;
+		counterLeftArrow = 0;
+		counterUpArrow = 0;
+		counterDownArrow = 0;
+		counterQ = 0;
+		counterA = 0;
+	}
+
 	//setup menu 1
 	private void setUpMenu1() {
 		
@@ -244,7 +268,13 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 		
 		//right arrow pressed
 		if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
-			
+
+			//Increase the counter for the corresponding key
+			counterRightArrow++;
+
+			//log the key press event
+			logger.logRightArrow();
+
 			// navigation menu 1
 			
 			if (menu1 == true && selectedIcon == "music") {
@@ -303,7 +333,13 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 		
 		//left arrow pressed
 		else if (e.getKeyCode()==KeyEvent.VK_LEFT) {
-			
+
+			//Increase the counter for the corresponding key
+			counterLeftArrow++;
+
+			//log the key press event
+			logger.logLeftArrow();
+
 			//navigation menu 1
 			
 			if (menu1 == true && selectedIcon == "music") {
@@ -359,11 +395,17 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 		
 		//up arrow; menu 4 only
 		else if (e.getKeyCode()==KeyEvent.VK_UP) {
-			
+
+			//Increase the counter for the corresponding key
+			counterUpArrow++;
+
+			//log the key press event
+			logger.logUpArrow();
+
 			if (menu4==true) {
 				p41.remove(menuDescription1);
-				counter ++;
-				String s = "Heat is: "+counter+"°C";
+				heatCounter ++;
+				String s = "Heat is: "+heatCounter+"°C";
 				actionSuccess1.setText(s);
 				p41.add(actionSuccess1);
 				this.setVisible(true);
@@ -373,11 +415,17 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 		
 		//down arrow; menu 4 only
 		else if (e.getKeyCode()==KeyEvent.VK_DOWN) {
-			
+
+			//Increase the counter for the corresponding key
+			counterDownArrow++;
+
+			//log the key press event
+			logger.logDownArrow();
+
 			if (menu4==true) {
 				p41.remove(menuDescription1);
-				counter --;
-				String s = "Heat is: "+counter+"°C";
+				heatCounter --;
+				String s = "Heat is: "+heatCounter+"°C";
 				actionSuccess1.setText(s);
 				p41.add(actionSuccess1);
 				this.setVisible(true);
@@ -387,7 +435,13 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 		
 		//Q key = "Enter"
 		else if (e.getKeyCode()==KeyEvent.VK_Q) {
-			
+
+			//Increase the counter for the corresponding key
+			counterQ++;
+
+			//log the key press event
+			logger.logQKey();
+
 			// menu 1
 			if (menu1 == true && selectedIcon == "smartHome") { //needs adjustment, only when icon is smartHome
 				this.remove(panel1);
@@ -412,6 +466,13 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 		
 		//A key = "Back"
 		else if (e.getKeyCode()==KeyEvent.VK_A) {
+
+			//Increase the counter for the corresponding key
+			counterA++;
+
+			//log the key press event
+			logger.logAKey();
+
 			if (menu2 == true) {
 				this.remove(panel2);
 				menu2 = false;
@@ -425,7 +486,7 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 			else if (menu4 == true) {
 				this.remove(panel4);
 				menu4 = false;
-				counter = 20;
+				heatCounter = 20;
 				setUpMenu2();
 			}	
 		}
@@ -437,6 +498,8 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 		
 		//H key for exit the program
 		else if (e.getKeyCode()==KeyEvent.VK_H) {
+			logger.writeSummary(counterRightArrow,counterLeftArrow,counterUpArrow,counterDownArrow,counterQ,counterA);
+			logger.closeFileHandler();
 			System.exit(0);
 		}
 		
@@ -449,6 +512,4 @@ public class HUD_GUI_Nightview extends JFrame implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// not used
 	}
-
-
 }

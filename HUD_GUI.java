@@ -31,7 +31,7 @@ public class HUD_GUI extends JFrame implements KeyListener {
 	// Counter for the heat adjustment
 	private int heatCounter;
 
-	// Counter for all mapped keys (except Z, because this terminates counting)
+	// Counter for all mapped keys (except G as this starts the system (once) and H because this terminates counting)
 	private int counterRightArrow, counterLeftArrow, counterUpArrow, counterDownArrow, counterQ, counterA;
 
 	// Logger object
@@ -268,6 +268,9 @@ public class HUD_GUI extends JFrame implements KeyListener {
 
 			//Increase the counter for the corresponding key
 			counterRightArrow++;
+
+			//log the key press event
+			logger.logRightArrow();
 			
 			// navigation menu 1
 			
@@ -331,6 +334,9 @@ public class HUD_GUI extends JFrame implements KeyListener {
 			//Increase the counter for the corresponding key
 			counterLeftArrow++;
 
+			//log the key press event
+			logger.logLeftArrow();
+
 			//navigation menu 1
 			
 			if (menu1 == true && selectedIcon == "music") {
@@ -389,7 +395,10 @@ public class HUD_GUI extends JFrame implements KeyListener {
 
 			//Increase the counter for the corresponding key
 			counterUpArrow++;
-			
+
+			//log the key press event
+			logger.logUpArrow();
+
 			if (menu4==true) {
 				p41.remove(menuDescription1);
 				heatCounter ++;
@@ -406,6 +415,9 @@ public class HUD_GUI extends JFrame implements KeyListener {
 
 			//Increase the counter for the corresponding key
 			counterDownArrow++;
+
+			//log the key press event
+			logger.logDownArrow();
 			
 			if (menu4==true) {
 				p41.remove(menuDescription1);
@@ -423,6 +435,9 @@ public class HUD_GUI extends JFrame implements KeyListener {
 
 			//Increase the counter for the corresponding key
 			counterQ++;
+
+			//log the key press event
+			logger.logQKey();
 			
 			// menu 1
 			if (menu1 == true && selectedIcon == "smartHome") { //needs adjustment, only when icon is smartHome
@@ -451,6 +466,9 @@ public class HUD_GUI extends JFrame implements KeyListener {
 
 			//Increase the counter for the corresponding key
 			counterA++;
+
+			//log the key press event
+			logger.logAKey();
 
 			if (menu2 == true) {
 				this.remove(panel2);
