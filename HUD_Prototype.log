@@ -1,9 +1,78 @@
-Mar 04, 2018 6:44:36 PM HUD_Logger writeSummary
+Mar 04, 2018 9:38:01 PM HUD_Logger logLeftArrow
 INFO: 
+The user pressed key LEFT
+
+Mar 04, 2018 9:38:02 PM HUD_Logger logQKey
+INFO: 
+The user pressed key Q
+
+Mar 04, 2018 9:38:03 PM HUD_Logger logLeftArrow
+INFO: 
+The user pressed key LEFT
+
+Mar 04, 2018 9:38:03 PM HUD_Logger logLeftArrow
+INFO: 
+The user pressed key LEFT
+
+Mar 04, 2018 9:38:04 PM HUD_Logger logQKey
+INFO: 
+The user pressed key Q
+
+Mar 04, 2018 9:38:04 PM HUD_Logger logRightArrow
+INFO: 
+The user pressed key RIGHT
+
+Mar 04, 2018 9:38:06 PM HUD_Logger logAKey
+INFO: 
+The user pressed key A
+
+Mar 04, 2018 9:38:07 PM HUD_Logger logQKey
+INFO: 
+The user pressed key Q
+
+Mar 04, 2018 9:38:09 PM HUD_Logger logUpArrow
+INFO: 
+The user pressed key UP
+
+Mar 04, 2018 9:38:09 PM HUD_Logger logUpArrow
+INFO: 
+The user pressed key UP
+
+Mar 04, 2018 9:38:09 PM HUD_Logger logUpArrow
+INFO: 
+The user pressed key UP
+
+Mar 04, 2018 9:38:09 PM HUD_Logger logUpArrow
+INFO: 
+The user pressed key UP
+
+Mar 04, 2018 9:38:09 PM HUD_Logger logUpArrow
+INFO: 
+The user pressed key UP
+
+Mar 04, 2018 9:38:10 PM HUD_Logger logUpArrow
+INFO: 
+The user pressed key UP
+
+Mar 04, 2018 9:38:10 PM HUD_Logger logUpArrow
+INFO: 
+The user pressed key UP
+
+Mar 04, 2018 9:38:11 PM HUD_Logger logAKey
+INFO: 
+The user pressed key A
+
+Mar 04, 2018 9:38:12 PM HUD_Logger logAKey
+INFO: 
+The user pressed key A
+
+Mar 04, 2018 9:38:16 PM HUD_Logger writeSummary
+INFO: 
+
 Summary for the current session:
-Right arrow clicks: 2
-Left arrow clicks: 7
-Up arrow clicks: 0
-Down arrow clicks: 0
-Q key clicks: 2
-A key clicks: 1
+RIGHT arrow clicks: 1
+LEFT arrow clicks: 3
+UP arrow clicks: 7
+DOWN arrow clicks: 0
+Q key clicks: 3
+A key clicks: 3

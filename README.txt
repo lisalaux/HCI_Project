@@ -9,6 +9,10 @@ system in a car. In particular, a user can switch to the smart home submenu,
 which allows to adjust the heating temperature and lock the house door.
 The control buttons on a steering wheel are simulated using the keyboard.
 
+2. Setup
+Run Dayview_Main.java for the day-view. Press G to start up the GUI.
+Run Nightview_Main.java for the night view.Press G to start up the GUI.
+
 2. Key mapping
 G = Start the program
 H = Quit the program
@@ -16,8 +20,8 @@ LEFT ARROW = Navigate left in the menu
 RIGHT ARROW = Navigate right in the menu
 UP ARROW = Adjust the controls to the top
 DOWN ARROW = Adjust the controls to the bottom
-A = Go a level down in the menu hierarchy (=select)
-Q = Go a level up in the menu hierarchy (=undo)
+Q = Go a level down in the menu hierarchy (=select)
+A = Go a level up in the menu hierarchy (=undo)
 
 3. Miscellaneous
 In order to allow for tracking of user interaction with the program
