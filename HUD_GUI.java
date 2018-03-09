@@ -46,7 +46,7 @@ public class HUD_GUI extends JFrame implements KeyListener {
 		final int width = screenSize.width;
 		final int height = screenSize.height;
 
-		this.setLocation(width/5, height-(250));
+		this.setLocation(width/2-500, height-(250));
 
 		setFocusable(true);
 		this.addKeyListener(this);
