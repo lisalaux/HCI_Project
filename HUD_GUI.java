@@ -1,7 +1,4 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -41,7 +38,16 @@ public class HUD_GUI extends JFrame implements KeyListener {
 	public HUD_GUI() {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(1000, 250);
-		setLocationRelativeTo(null);
+
+		// setLocationRelativeTo(null);
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		Dimension screenSize = tk.getScreenSize();
+
+		final int width = screenSize.width;
+		final int height = screenSize.height;
+
+		this.setLocation(width/5, height-(250));
+
 		setFocusable(true);
 		this.addKeyListener(this);
 		//makes it opaque and without control panel
